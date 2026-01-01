@@ -7,6 +7,10 @@ from services.drive import export_project
 
 app = FastAPI()
 
+@app.get("/")
+def root():
+    return {"status": "ok"}
+
 @app.post("/project/generate-script")
 def script_endpoint(data: dict):
     return generate_script(data)
