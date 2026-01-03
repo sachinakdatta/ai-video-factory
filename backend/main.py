@@ -7,8 +7,8 @@ from services.drive import export_project
 
 app = FastAPI()
 
-@app.get("/")
-def root():
+@app.get("/health")
+def health():
     return {"status": "ok"}
 
 @app.post("/project/generate-script")
