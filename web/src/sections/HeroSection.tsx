@@ -51,25 +51,25 @@ export default function HeroSection() {
         </FadeIn>
       </div>
 
-      <FadeIn
-        delay={0.6}
-        y={30}
-        className="absolute left-1/2 top-1/2 z-10 w-[280px] -translate-x-1/2 -translate-y-1/2 sm:bottom-0 sm:top-auto sm:w-[360px] sm:translate-y-0 md:w-[440px] lg:w-[520px]"
-      >
-        <Magnet
-          padding={150}
-          strength={3}
-          activeTransition="transform 0.3s ease-out"
-          inactiveTransition="transform 0.6s ease-in-out"
-        >
-          <img
-            src={hero.portrait}
-            alt="Sachin, AI video creator"
-            className="w-full select-none object-contain"
-            draggable={false}
-          />
-        </Magnet>
-      </FadeIn>
+      {/* Centering lives on this wrapper: FadeIn writes its own inline transform,
+          which would otherwise clobber the -translate-x-1/2 utility. */}
+      <div className="absolute left-1/2 top-1/2 z-10 w-[280px] -translate-x-1/2 -translate-y-1/2 sm:bottom-0 sm:top-auto sm:w-[360px] sm:translate-y-0 md:w-[440px] lg:w-[520px]">
+        <FadeIn delay={0.6} y={30}>
+          <Magnet
+            padding={150}
+            strength={3}
+            activeTransition="transform 0.3s ease-out"
+            inactiveTransition="transform 0.6s ease-in-out"
+          >
+            <img
+              src={hero.portrait}
+              alt="Sachin, AI video creator"
+              className="w-full select-none object-contain"
+              draggable={false}
+            />
+          </Magnet>
+        </FadeIn>
+      </div>
     </section>
   );
 }
